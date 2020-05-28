@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 //importamos el servicio
 import { PersonaService } from '../../services/persona.service'
 
@@ -9,8 +9,10 @@ import { PersonaService } from '../../services/persona.service'
 })
 export class TablaPersonaComponent implements OnInit {
 
-    personas: any;
-    cabeceras: string[] = ["Id Producto", "Nombre", "Precio", "Stock", "Nombre Categoria"];
+    @Input() personas: any;
+    @Input() isMantenimiento= false;
+
+    cabeceras: string[] = ["Id Persona", "Nombre Completo", "Telefono", "Correo"];
     constructor(private personaService: PersonaService) {
 
     }
@@ -19,6 +21,19 @@ export class TablaPersonaComponent implements OnInit {
         this.personaService.getPersona().subscribe(
             data => this.personas = data
         );
-  }
+    }
+
+    eliminar(idPersona) {
+        if (confirm("Desea eliminar al usuario") == true) {
+          this.personaService.eliminarPersona(idPersona).subscribe(data => {
+              this.personaService.getPersona().subscribe(
+                  data => this.personas = data
+              );
+          });
+        }
+
+        //alert(idPersona);
+
+    }
 
 }

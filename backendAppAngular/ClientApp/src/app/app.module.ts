@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -20,6 +21,7 @@ import { TablaProductoComponent } from './components/tabla-producto/tabla-produc
 import { productoService } from './services/producto.service';
 import { CategoriaService } from './services/categoria.service';
 import { PersonaService } from './services/persona.service';
+import { UsuarioService } from './services/usuario.service';
 
 
 //importar httpModule ( no es lo mismo que el client)
@@ -31,6 +33,13 @@ import { FiltradoProductoCategoriaComponent } from './components/filtrado-produc
 import { TablaPersonaComponent } from './components/tabla-persona/tabla-persona.component';
 import { BuscadorPersonaNombreCompletoComponent } from './components/buscador-persona-nombre-completo/buscador-persona-nombre-completo.component';
 import { FiltradoPersonaNombreCompletoComponent } from './components/filtrado-persona-nombre-completo/filtrado-persona-nombre-completo.component';
+import { BuscadorUsuarioTipoUsuarioComponent } from './components/buscador-usuario-tipo-usuario/buscador-usuario-tipo-usuario.component';
+import { FiltradoUsuarioTipoUsuarioComponent } from './components/filtrado-usuario-tipo-usuario/filtrado-usuario-tipo-usuario.component';
+import { TablaUsuarioComponent } from './components/tabla-usuario/tabla-usuario.component';
+import { ManteniminetoPersonaComponent } from './components/mantenimineto-persona/mantenimineto-persona.component';
+import { PersonaFormMantenimientoComponent } from './components/persona-form-mantenimiento/persona-form-mantenimiento.component';
+import { MantenimientoProductoComponent } from './components/mantenimiento-producto/mantenimiento-producto.component';
+import { ProductoFormMantenimientoComponent } from './components/producto-form-mantenimiento/producto-form-mantenimiento.component';
 
 @NgModule({
   declarations: [
@@ -48,22 +57,34 @@ import { FiltradoPersonaNombreCompletoComponent } from './components/filtrado-pe
     FiltradoProductoCategoriaComponent,
     TablaPersonaComponent,
     BuscadorPersonaNombreCompletoComponent,
-    FiltradoPersonaNombreCompletoComponent
+    FiltradoPersonaNombreCompletoComponent,
+    BuscadorUsuarioTipoUsuarioComponent,
+    FiltradoUsuarioTipoUsuarioComponent,
+    TablaUsuarioComponent,
+    ManteniminetoPersonaComponent,
+    PersonaFormMantenimientoComponent,
+    MantenimientoProductoComponent,
+    ProductoFormMantenimientoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       HttpClientModule,
       HttpModule,
-    FormsModule,
+      FormsModule,
+      ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: FiltradoProductoNombreComponent },
       { path: 'filtradoProductoCategoria', component: FiltradoProductoCategoriaComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'diasSemana', component: DiasSemana },
+      { path: 'filtradoPersonaNombreCompleto', component: FiltradoPersonaNombreCompletoComponent },
+      { path: 'filtradoUsuarioTipo', component: FiltradoUsuarioTipoUsuarioComponent },
+      { path: 'mantenimiento-persona', component: ManteniminetoPersonaComponent },
+      { path: 'persona-form-mantenimiento/:id', component: PersonaFormMantenimientoComponent },
+      { path: 'mantenimiento-producto', component: MantenimientoProductoComponent },
+      { path: 'producto-form-mantenimiento/:id', component: ProductoFormMantenimientoComponent }
     ])
     ],
-    providers: [productoService, CategoriaService, PersonaService],
+    providers: [productoService, CategoriaService, PersonaService, UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

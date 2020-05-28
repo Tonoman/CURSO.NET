@@ -28,13 +28,23 @@
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Fetch data
+              <a [routerLink]='["/filtradoPersonaNombreCompleto"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Filtrado Persona por Nombre Completo
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/diasSemana"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> Dias de la semana
+              <a [routerLink]='["/filtradoUsuarioTipo"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Filtrado Usuario por Tipo
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/mantenimiento-persona"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Mantenimiento de Personas
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/mantenimiento-producto"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Mantenimiento de Producto
               </a>
             </li>
           </ul>

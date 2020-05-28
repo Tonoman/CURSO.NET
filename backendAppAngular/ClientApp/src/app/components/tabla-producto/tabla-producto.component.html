@@ -1,17 +1,25 @@
 
-<table class="table">
+  <table class="table">
 
-  <thead class="thead-dark">
-    <tr>
-      <th *ngFor="let cabecera of cabaceras">{{cabecera}}</th>
-    </tr>
-  </thead>
+    <thead class="thead-dark">
+      <tr>
+        <th *ngFor="let cabecera of cabaceras">{{cabecera}}</th>
+        <th *ngIf="isMantenimiento==true">Operaciones</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr *ngFor="let persona of personas">
-      <td>{{personas.iidpersona}}</td>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.idproducto}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.precio}}</td>
+        <td>{{producto.stock}}</td>
+        <td>{{producto.nombreCategoria}}</td>
+        <td *ngIf="isMantenimiento==true">
+          <i [routerLink]="['/producto-form-mantenimiento',producto.iidproducto]" class="glyphicon glyphicon-edit btn btn-primary"></i>
+          <i class="glyphicon glyphicon-trash btn btn-danger" (click)="eliminar(producto.iidproducto)"></i>
+        </td>
+      </tr>
+    </tbody>
 
-    </tr>
-  </tbody>
-
-</table>
+  </table>

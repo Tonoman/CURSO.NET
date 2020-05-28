@@ -85,6 +85,24 @@ namespace BackendAppAngular.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Producto/listarMarcas")]
+        public IEnumerable<MarcaCLS> listarMarcas()
+        {
+            using (BDRestauranteContext bd = new BDRestauranteContext())
+            {
+                List<MarcaCLS> lista = (from marca in bd.Marca
+                                           where marca.Bhabilitado == 1
+                                           select new MarcaCLS
+                                           {
+                                               iidmarca=marca.Iidmarca,
+                                               nombre=marca.Nombre
+
+                                           }).ToList();
+                return lista;
+            }
+        }
+
 
     }
 }

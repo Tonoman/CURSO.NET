@@ -11,6 +11,7 @@ export class TablaProductoComponent implements OnInit {
 
     @Input() productos: any;
     @Input() isMantenimiento = false;
+    p: number = 1;
     cabaceras: string[] = ["Id Procducto", "Descripcion", "Precio", "Stock", "Categoria"];
 
     constructor(private producto:productoService) {
@@ -22,6 +23,16 @@ export class TablaProductoComponent implements OnInit {
         this.producto.getProducto().subscribe(
             data => this.productos = data
         );
-  }
+    }
+
+    eliminar(idProducto) {
+        if (confirm("Desea eliminar el producto") == true) {
+            this.producto.eliminarProducto(idProducto).subscribe(data => {
+                this.producto.getProducto().subscribe(
+                    data => this.productos = data
+                );
+            });
+        }
+    }
 
 }

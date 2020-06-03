@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
+//librerias externas
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 //registrar componentes creado
 import { ButtonAgregar } from './components/button/Button.component';
@@ -40,6 +43,8 @@ import { ManteniminetoPersonaComponent } from './components/mantenimineto-person
 import { PersonaFormMantenimientoComponent } from './components/persona-form-mantenimiento/persona-form-mantenimiento.component';
 import { MantenimientoProductoComponent } from './components/mantenimiento-producto/mantenimiento-producto.component';
 import { ProductoFormMantenimientoComponent } from './components/producto-form-mantenimiento/producto-form-mantenimiento.component';
+import { MantenimientoUsuarioComponent } from './components/mantenimiento-usuario/mantenimiento-usuario.component';
+import { UsuarioFormMantenimientoComponent } from './components/usuario-form-mantenimiento/usuario-form-mantenimiento.component';
 
 @NgModule({
   declarations: [
@@ -64,11 +69,14 @@ import { ProductoFormMantenimientoComponent } from './components/producto-form-m
     ManteniminetoPersonaComponent,
     PersonaFormMantenimientoComponent,
     MantenimientoProductoComponent,
-    ProductoFormMantenimientoComponent
+    ProductoFormMantenimientoComponent,
+    MantenimientoUsuarioComponent,
+    UsuarioFormMantenimientoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
       HttpClientModule,
+      NgxPaginationModule,
       HttpModule,
       FormsModule,
       ReactiveFormsModule,
@@ -81,7 +89,9 @@ import { ProductoFormMantenimientoComponent } from './components/producto-form-m
       { path: 'mantenimiento-persona', component: ManteniminetoPersonaComponent },
       { path: 'persona-form-mantenimiento/:id', component: PersonaFormMantenimientoComponent },
       { path: 'mantenimiento-producto', component: MantenimientoProductoComponent },
-      { path: 'producto-form-mantenimiento/:id', component: ProductoFormMantenimientoComponent }
+      { path: 'producto-form-mantenimiento/:id', component: ProductoFormMantenimientoComponent },
+      { path: 'mantenimiento-usuario', component: MantenimientoUsuarioComponent },
+      { path: 'usuario-form-mantenimiento/:id', component: UsuarioFormMantenimientoComponent }
     ])
     ],
     providers: [productoService, CategoriaService, PersonaService, UsuarioService],

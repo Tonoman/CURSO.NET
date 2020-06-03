@@ -28,5 +28,25 @@ export class productoService {
         return this.http.get(this.urlBase + "api/Producto/filtarProductosPorCategoria/"+categoria).map(res => res.json());
     }
 
+    //metodo de listar filtro categorias
+    public getObtenerProductoPorId(idProducto) {
+        return this.http.get(this.urlBase + "api/Producto/obtenerProductoPorId/"+idProducto).map(res => res.json());
+    }
+
+    //metodo de listar filtro categorias
+    public listarMarcas() {
+        return  this.http.get(this.urlBase + "api/Producto/listarMarcas").map(res => res.json());
+    }
+
+    //metodo agregar Producto
+    public registrarProducto(producto) {
+        var url = this.urlBase + "api/Producto/registrarProducto";
+        return this.http.post(url, producto).map(res => res.json());
+    }
+
+    //metodo eliminar Personas
+    public eliminarProducto(idProducto) {
+        return this.http.get(this.urlBase + "api/Producto/eliminarProducto/"+idProducto).map(res => res.json());
+    }
 
 }

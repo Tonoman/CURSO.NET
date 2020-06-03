@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let persona of personas">
+    <tr *ngFor="let persona of personas | paginate: { itemsPerPage: 5, currentPage: p }">
       <td>{{persona.iidPersona}}</td>
       <td>{{persona.nombreCompleto}}</td>
       <td>{{persona.telefono}}</td>
@@ -21,3 +21,6 @@
   </tbody>
 
 </table>
+
+<!--control de paginacion-->
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

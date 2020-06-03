@@ -39,5 +39,8 @@ export class PersonaService {
         return this.http.get(this.urlBase + "api/Persona/eliminarPersona/"+idPersona).map(res => res.json());
     }
 
-
+    //validar correo de  Persona
+    public validarCorreo(id, correo) {
+        return this.http.get(this.urlBase + "api/Persona/validarCorreo/" + id + "/" + correo).map(res => res.json());
+    }
 }

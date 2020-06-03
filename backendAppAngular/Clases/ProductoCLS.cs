@@ -12,6 +12,8 @@ namespace BackendAppAngular.Clases
         public decimal precio { get; set; }
         public int stock { get; set; }
         public string nombreCategoria { get; set; }
+        public int idmarca { get; set; }
+        public int idcategoria { get; set; }
 
     }
 }

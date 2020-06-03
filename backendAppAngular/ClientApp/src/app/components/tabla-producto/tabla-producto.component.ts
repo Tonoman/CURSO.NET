@@ -12,7 +12,7 @@ export class TablaProductoComponent implements OnInit {
     @Input() productos: any;
     @Input() isMantenimiento = false;
     p: number = 1;
-    cabaceras: string[] = ["Id Procducto", "Descripcion", "Precio", "Stock", "Categoria"];
+    cabaceras: string[] = ["Id Producto", "Descripcion", "Precio", "Stock", "Categoria"];
 
     constructor(private producto:productoService) {
 
